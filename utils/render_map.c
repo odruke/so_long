@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:00 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/08 22:32:17 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/11 16:17:18 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,23 +14,26 @@
 
 void	load_textures(t_data *data)
 {
-	data->texture->wall = mlx_xpm_file_to_image(data->mlx, "./imgs/muro_1.xpm", &(int){0}, &(int){0});
+	data->texture->wall = mlx_xpm_file_to_image(data->mlx, "./imgs/ladrillo_1_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->wall)
 		error_texture_load(data);
-	data->texture->floor = mlx_xpm_file_to_image(data->mlx, "./imgs/hierba_1.xpm", &(int){0}, &(int){0});
+	data->texture->floor = mlx_xpm_file_to_image(data->mlx, "./imgs/baldosa_1_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->floor)
 		error_texture_load(data);
-	data->texture->player = mlx_xpm_file_to_image(data->mlx, "./imgs/player_sweep_1_grass.xpm", &(int){0}, &(int){0});
+	data->texture->player = mlx_xpm_file_to_image(data->mlx, "./imgs/barrer_3_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->player)
 		error_texture_load(data);
-	data->texture->collectible = mlx_xpm_file_to_image(data->mlx, "./imgs/moneda_2_grass.xpm", &(int){0}, &(int){0});
+	data->texture->collectible = mlx_xpm_file_to_image(data->mlx, "./imgs/moneda_1_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->collectible)
 		error_texture_load(data);
-	data->texture->closed_exit = mlx_xpm_file_to_image(data->mlx, "./imgs/pc_1_grass.xpm", &(int){0}, &(int){0});
+	data->texture->closed_exit = mlx_xpm_file_to_image(data->mlx, "./imgs/pc_off_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->closed_exit)
 		error_texture_load(data);
-	data->texture->open_exit = mlx_xpm_file_to_image(data->mlx, "./imgs/pc_1_on_grass.xpm", &(int){0}, &(int){0});
+	data->texture->open_exit = mlx_xpm_file_to_image(data->mlx, "./imgs/pc_on_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->open_exit)
+		error_texture_load(data);
+	data->texture->player_left = mlx_xpm_file_to_image(data->mlx, "./imgs/barrer_3_izq_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->player_left)
 		error_texture_load(data);
 }
 
@@ -38,6 +41,8 @@ void	*ide_textures(t_texture *texture, char ide)
 {
 	if (ide == PLAYER)
 		return (texture->player);
+	else if (ide == PLAYER_LEFT)
+		return (texture->player_left);
 	else if (ide == COLLECTIBLE)
 		return (texture->collectible);
 	else if (ide == EXIT)

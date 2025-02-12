@@ -21,8 +21,9 @@
 # include <fcntl.h>
 # include <errno.h>
 
-# define TILE_SIZE 32
+# define TILE_SIZE 50
 # define PLAYER 'P'
+# define PLAYER_LEFT 'L'
 # define FLOOR '0'
 # define WALL '1'
 # define EXIT 'E'
@@ -43,6 +44,7 @@
 typedef struct s_texture
 {
 	void		*player;
+	void		*player_left;
 	void		*floor;
 	void		*wall;
 	void		*open_exit;

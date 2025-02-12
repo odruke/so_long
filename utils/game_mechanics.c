@@ -123,7 +123,10 @@ void	move_player(t_data *data, int x, int y)
 			printf("congratulations!\n--> YOU WIN!! <--\n");
 			free_and_exit(data);
 		}
-		data->map->grid[data->map->pos_y += y][data->map->pos_x += x] = PLAYER;
+		if (x >= 0)
+			data->map->grid[data->map->pos_y += y][data->map->pos_x += x] = PLAYER;
+		else
+			data->map->grid[data->map->pos_y += y][data->map->pos_x += x] = PLAYER_LEFT;
 		data->counter++;
 		printf("mouvements: %i\n", data->counter);
 		load_game(data);
