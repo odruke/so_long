@@ -39,8 +39,6 @@
 # define LEFT_ARROW 65361
 # define RIGHT_ARROW 65363
 
-
-
 typedef struct s_texture
 {
 	void		*player;
@@ -83,12 +81,13 @@ typedef struct	s_data
 } t_data;
 
 char	**load_map(t_data *data, char *map_file);
-char	**copy_map(char **map, int max_y);
+char	**copy_map(t_data *data, char **map, int max_y);
 void	draw_map(t_data *data);
 void	draw_frame(t_data *data);
 void	load_textures(t_data *data);
 void	destroy_map(char **map, int max_y);
 void	destroy_textures(t_data *data);
+void	ft_free_data(t_data *data);
 int		free_and_exit(t_data *data);
 int		get_height(char **map);
 int		find_coins(t_data *data);
@@ -105,8 +104,7 @@ void	error_map_load(t_data *data);
 void	error_no_collectibles(t_data *data);
 void	error_item_or_path(t_data *data);
 void	error_item_duplicate(t_data *data, char symbol);
+void	error_malloc_failed(t_data *data);
 void	valid_path(t_data *data, int y, int x);
-
-
 
 #endif

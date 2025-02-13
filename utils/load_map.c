@@ -11,24 +11,21 @@
 /* ************************************************************************** */
 #include "../so_long.h"
 
-char	**copy_map(char **map, int max_y)
+char	**copy_map(t_data *data, char **map, int max_y)
 {
 	int		y;
 	char	**mapff;
 
 	y = 0;
-	mapff = (char **)malloc(sizeof(char *) * max_y + 1);
+	mapff = (char **)malloc(sizeof(char *) * max_y);
 	if (!mapff)
-	{
-		perror("Error:\nallocation failed");
-		exit(0);
-	}
+		error_malloc_failed(data);
 	while (y < max_y)
 	{
 		mapff[y] = ft_strdup(map[y]);
 		y++;
 	}
-	mapff[y] = NULL;
+	//mapff[y] = NULL;
 	return (mapff);
 }
 

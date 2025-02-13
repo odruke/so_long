@@ -26,6 +26,7 @@ SRC =  test.c\
 	   ./utils/error_handle.c\
 	   ./utils/game_mechanics.c\
 	   ./utils/check_map.c\
+	   ./utils/error_handle_2.c\
 	   
 
 

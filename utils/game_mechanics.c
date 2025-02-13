@@ -47,7 +47,7 @@ void	find_items_and_path(t_data *data)
 		{
 
 			if (data->map->gridff[y][x] == PLAYER)
-				valid_path(data, y, x);// lo transformamos en void, exit si fallo
+				valid_path(data, y, x);
 			x++;
 		}
 		y++;
@@ -133,8 +133,3 @@ void	move_player(t_data *data, int x, int y)
 	}
 }
 
-void	load_game(t_data *data)
-{
-	draw_map(data);
-	draw_frame(data);
-}

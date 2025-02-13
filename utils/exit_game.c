@@ -54,6 +54,7 @@ int	free_and_exit(t_data *data)
 	printf("map destroyed\n");
 	free(data->item);
 	free(data->map);
+	free(data);
 	exit(0);
 	return (0);
 }

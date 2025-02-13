@@ -20,3 +20,9 @@ int	get_height(char **map)
 		i++;
 	return (i);
 }
+
+void	load_game(t_data *data)
+{
+	draw_map(data);
+	draw_frame(data);
+}
