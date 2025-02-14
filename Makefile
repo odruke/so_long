@@ -60,7 +60,6 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
-	@make -C $(MLX_LIBDIR) fclean
 	@make -C $(FT_PRINTF_LIBDIR) fclean
 	@make -C $(GNL_LIBDIR) fclean
 
