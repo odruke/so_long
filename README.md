@@ -7,9 +7,9 @@
 In **so_long**, your objective is to:
 - **Collect all coins** (collectibles) on the map.
 - **Reach the exit** once all coins have been collected.
-- Navigate through a rectangular map with walls, collectibles, an exit, and a starting position.
+- Do it in the most efficient way.
 
-The map is provided in a file with a `.ber` extension. It must follow these rules:
+The map is provided in `.ber` extension text file. It must follow these rules:
 - **Characters used:**
   - `0`: Empty space
   - `1`: Wall
@@ -24,26 +24,20 @@ The map is provided in a file with a `.ber` extension. It must follow these rule
 - **Objective:** Collect all the coins and then exit the level.
 - **Movement:**  
   Use **WASD** keys or **arrow keys**.
-  - **WASD (Linux codes):**  
-    - `W`: 119  
-    - `A`: 97  
-    - `S`: 115  
-    - `D`: 100  
-  - **Arrow Keys (Linux codes):**  
-    - Up: 65362  
-    - Down: 65364  
-    - Left: 65361  
-    - Right: 65363
+    - `W` or `Up`: move up
+    - `A` or `Left`: move left  
+    - `S` or `Down`: move down   
+    - `D` or `Right`: move right 
 - Each move updates a movement counter printed in the terminal.
 - The player cannot move through walls.
 
 ## Graphics and Libraries
 
-The game uses **MinilibX** for window creation and image rendering. Custom textures are used for the walls, floor, coins, exit, and the main character. Instead of the originally suggested theme (a dolphin, fish, and Earth), the game features a guy sweeping the floor and coins labeled "42."
+The game uses **MinilibX** for window creation and image rendering. Custom textures are used for the walls, floor, coins, exit, and the main character.
 
 ### External Tools
 
-The following programs were used for image generation and editing:
+The following programs and services were used for image generation and editing:
 - **Adobe Stock:** Surface textures.
 - **Ideogram:** Item generation.
 - **GIMP:** Image editing.
@@ -51,7 +45,7 @@ The following programs were used for image generation and editing:
 
 ### Reused Libraries
 
-This project leverages previous work and includes:
+This project leverages previous 42 work and includes:
 - **libft**
 - **ft_printf**
 - **get_next_line**
@@ -64,3 +58,45 @@ The project includes a `Makefile` that compiles all source files and links the n
 
 ```bash
 make
+```
+Then, run the game by passing a .ber map file:
+```bash
+./so_long path/to/map.ber
+```
+## Installing and Linking MinilibX
+### Linux:
+
+1. Install dependencies:
+```bash
+sudo apt-get install gcc make xorg libxext-dev libbsd-dev
+```
+2. Clone MinilibX into your project:
+```bash
+git clone https://github.com/42Paris/minilibx-linux.git mlx
+```
+The provided Makefile will build MinilibX automatically.
+
+3. Add this includes and flags to your Makefile:
+```makefile
+# Contains the X11 and MLX header files
+INCLUDES = -I/usr/include -Imlx
+
+MLX_FLAGS = -Lmlx -lmlx -L/usr/lib/X11 -lXext -lX11
+```
+### macOS:
+
+Install XQuartz if needed.
+Clone MinilibX:
+```bash
+git clone https://github.com/42Paris/minilibx-linux.git mlx
+```
+Use this includes and flags in your Makefile:
+```makefile
+# Contains the X11 and MLX header files
+INCLUDES = -I/opt/X11/include -Imlx
+
+MLX_FLAGS = -Lmlx -lmlx -L/usr/X11/lib -lXext -lX11 -framework OpenGL -framework AppKit
+```
+
+# License
+This project is for educational purposes as part of the 42 Network curriculum.
