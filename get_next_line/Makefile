@@ -5,6 +5,8 @@ SRC = get_next_line.c\
 
 OBJ = $(SRC:.c=.o)
 
+INCDIR = ../inc/
+
 INC = get_next_line.h
 
 CC = cc 
@@ -17,7 +19,7 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $(OBJ) 
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@ 
+	$(CC) -I$(INCDIR) $(CFLAGS) -c $< -o $@ 
 
 clean:
 	rm -f $(OBJ)
