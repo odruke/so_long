@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:42:25 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/07 23:37:50 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:34:34 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ typedef struct s_texture
 	void		*open_exit;
 	void		*closed_exit;
 	void		*collectible;
-} t_texture;
+}	t_texture;
 
 typedef struct s_item
 {
@@ -56,7 +56,7 @@ typedef struct s_item
 	int			exit;
 	int			coins;
 	int			coinsff;
-} t_item;
+}	t_item;
 
 typedef struct s_map
 {
@@ -68,17 +68,17 @@ typedef struct s_map
 	int			pos_x;
 	int			ext_y;
 	int			ext_x;
-} t_map;
+}	t_map;
 
-typedef struct	s_data
+typedef struct s_data
 {
-	void 		*mlx;
-	void 		*window;
+	void		*mlx;
+	void		*window;
 	t_texture	*texture;
 	t_map		*map;
 	t_item		*item;
 	int			counter;
-} t_data;
+}	t_data;
 
 char	**load_map(t_data *data, char *map_file);
 char	**copy_map(t_data *data, char **map, int max_y);
@@ -94,12 +94,12 @@ void	find_items_and_path(t_data *data);
 void	find_exit(t_data *data);
 void	check_map(t_data *data, char *file_map);
 void	move_player(t_data *data, int x, int y);
-int	handle_keypress(int	keycode, t_data *data);
+int		handle_keypress(int keycode, t_data *data);
 void	load_game(t_data *data);
-void    error_params(void);
+void	error_params(void);
 void	error_mlx(t_data *data);
-void    error_window(t_data *data);
-void    error_texture_load(t_data *data);
+void	error_window(t_data *data);
+void	error_texture_load(t_data *data);
 void	error_map_load(t_data *data);
 void	error_no_collectibles(t_data *data);
 void	error_item_or_path(t_data *data);

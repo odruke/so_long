@@ -6,35 +6,47 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 11:25:00 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/11 16:17:18 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:55:27 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	load_textures(t_data *data)
+static void	load_extra_textures(t_data *data)
 {
-	data->texture->wall = mlx_xpm_file_to_image(data->mlx, "./imgs/ladrillo_1_50.xpm", &(int){0}, &(int){0});
-	if (!data->texture->wall)
-		error_texture_load(data);
-	data->texture->floor = mlx_xpm_file_to_image(data->mlx, "./imgs/baldosa_1_50.xpm", &(int){0}, &(int){0});
-	if (!data->texture->floor)
-		error_texture_load(data);
-	data->texture->player = mlx_xpm_file_to_image(data->mlx, "./imgs/barrer_3_50.xpm", &(int){0}, &(int){0});
-	if (!data->texture->player)
-		error_texture_load(data);
-	data->texture->collectible = mlx_xpm_file_to_image(data->mlx, "./imgs/moneda_1_50.xpm", &(int){0}, &(int){0});
-	if (!data->texture->collectible)
-		error_texture_load(data);
-	data->texture->closed_exit = mlx_xpm_file_to_image(data->mlx, "./imgs/pc_off_50.xpm", &(int){0}, &(int){0});
-	if (!data->texture->closed_exit)
-		error_texture_load(data);
-	data->texture->open_exit = mlx_xpm_file_to_image(data->mlx, "./imgs/pc_on_50.xpm", &(int){0}, &(int){0});
-	if (!data->texture->open_exit)
-		error_texture_load(data);
-	data->texture->player_left = mlx_xpm_file_to_image(data->mlx, "./imgs/barrer_3_izq_50.xpm", &(int){0}, &(int){0});
+	data->texture->player_left = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/barrer_3_izq_50.xpm", &(int){0}, &(int){0});
 	if (!data->texture->player_left)
 		error_texture_load(data);
+}
+
+void	load_textures(t_data *data)
+{
+	data->texture->wall = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/ladrillo_1_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->wall)
+		error_texture_load(data);
+	data->texture->floor = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/baldosa_1_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->floor)
+		error_texture_load(data);
+	data->texture->player = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/barrer_3_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->player)
+		error_texture_load(data);
+	data->texture->collectible = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/moneda_1_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->collectible)
+		error_texture_load(data);
+	data->texture->closed_exit = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/pc_off_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->closed_exit)
+		error_texture_load(data);
+	data->texture->open_exit = mlx_xpm_file_to_image(data->mlx,
+			"./imgs/pc_on_50.xpm", &(int){0}, &(int){0});
+	if (!data->texture->open_exit)
+		error_texture_load(data);
+	load_extra_textures(data);
 }
 
 void	*ide_textures(t_texture *texture, char ide)
@@ -67,9 +79,11 @@ void	draw_map(t_data *data)
 		x = 0;
 		while (x < data->map->x)
 		{
-			mlx_put_image_to_window(data->mlx, data->window, data->texture->floor, x * TILE_SIZE, y * TILE_SIZE);
+			mlx_put_image_to_window(data->mlx, data->window,
+				data->texture->floor, x * TILE_SIZE, y * TILE_SIZE);
 			if (data->map->grid[y][x] == WALL)
-				mlx_put_image_to_window(data->mlx, data->window, data->texture->wall, x * TILE_SIZE, y * TILE_SIZE);
+				mlx_put_image_to_window(data->mlx, data->window,
+					data->texture->wall, x * TILE_SIZE, y * TILE_SIZE);
 			x++;
 		}
 		y++;
@@ -90,7 +104,8 @@ void	draw_frame(t_data *data)
 		{
 			img = ide_textures(data->texture, data->map->grid[y][x]);
 			if (img)
-				mlx_put_image_to_window(data->mlx, data->window, img, x * TILE_SIZE, y * TILE_SIZE);
+				mlx_put_image_to_window(data->mlx, data->window,
+					img, x * TILE_SIZE, y * TILE_SIZE);
 			x++;
 		}
 		y++;

@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/07 17:29:42 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/13 18:15:45 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:39:16 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -38,12 +38,12 @@ void	error_item_or_path(t_data *data)
 	}
 	else if (data->item->exit != 1)
 	{
-		perror("\033[1;31m🛑Error🛑\nInvalid map: must have 1 accesible exit\033[0m\n");
+		perror("\033[1;31m🛑Error🛑\nMap: must have 1 accesible exit\033[0m\n");
 		free_and_exit(data);
 	}
 	else if (data->item->coins > data->item->coinsff)
 	{
-		perror("\033[1;31m🛑Error🛑\nInvalid map: not all coins accesible\033[0m\n");
+		perror("\033[1;31m🛑Error🛑\nMap: not all coins accesible\033[0m\n");
 		free_and_exit(data);
 	}
 }
@@ -52,13 +52,12 @@ void	error_item_duplicate(t_data *data, char symbol)
 {
 	if (symbol == PLAYER)
 	{
-		perror("\033[1;31m🛑Error🛑\nInvalid map: multiple players not allowed\033[0m\n");
+		perror("\033[1;31m🛑Error🛑\nMap: multiple players not allowed\033[0m\n");
 		free_and_exit(data);
 	}
 	if (symbol == EXIT)
 	{
-		perror("\033[1;31m🛑Error🛑\nInvalid map: multiple exits not allowed\033[0m\n");
+		perror("\033[1;31m🛑Error🛑\nMap: ultiple exits not allowed\033[0m\n");
 		free_and_exit(data);
 	}
-
 }

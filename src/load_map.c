@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 18:04:17 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/11 16:15:11 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:13:13 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -25,7 +25,6 @@ char	**copy_map(t_data *data, char **map, int max_y)
 		mapff[y] = ft_strdup(map[y]);
 		y++;
 	}
-	//mapff[y] = NULL;
 	return (mapff);
 }
 
@@ -55,4 +54,3 @@ char	**load_map(t_data *data, char *map_file)
 	free(line);
 	return (map);
 }
-

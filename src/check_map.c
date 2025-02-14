@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/09 11:44:01 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/10 14:42:43 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/14 21:57:51 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ static int	valid_ext(char *file_map)
 {
 	char	*check;
 	int		len;
-	
+
 	len = ft_strlen(file_map);
 	check = ft_strnstr(file_map, ".ber", ft_strlen(file_map));
-	if(check == file_map + (len - 4))
+	if (check == file_map + (len - 4))
 		return (1);
 	else
 		return (0);
@@ -27,10 +27,10 @@ static int	valid_ext(char *file_map)
 
 static int	is_rectangle(t_data *data)
 {
-	char	*valid_symbol; 
+	char				*valid_symbol;
 	long unsigned int	len;
-	int		y;
-	int		x;
+	int					y;
+	int					x;
 
 	valid_symbol = "10PCEo";
 	y = 0;
@@ -68,7 +68,6 @@ static int	is_walled(t_data *data)
 			return (0);
 	return (1);
 }
-
 
 void	check_map(t_data *data, char *file_map)
 {

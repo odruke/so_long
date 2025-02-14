@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:55:43 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/06 17:52:54 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:24:00 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,8 @@ char	*gnl_strjoin(char *old_buffer, char *read_buff)
 		return (NULL);
 	if (!old_buffer)
 		old_buffer = gnl_calloc(BUFFER_SIZE, sizeof(char));
-	new_buffer = gnl_calloc((gnl_strlen(old_buffer) + gnl_strlen(read_buff) + 1),
+	new_buffer = gnl_calloc((gnl_strlen(old_buffer) + gnl_strlen(read_buff)
+				+ 1),
 			sizeof(char));
 	if (!new_buffer)
 		return (NULL);
