@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main.c                                              :+:    :+:           */
 /*                                                    +:+ +:+         +:+     */
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/14 00:52:31 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/14 21:55:44 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/21 15:10:02 by odruke-s       ########   odam.nl        */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ void	init_data(t_data *data, char *file_map)
 	data->window = NULL;
 	init_structs(data);
 	data->map->grid = load_map(data, file_map);
+	if (!data->map->grid[0])
+		error_map_format(data);
 	data->map->x = ft_strlen(data->map->grid[0]);
 	data->map->gridff = copy_map(data, data->map->grid, data->map->y);
 	data->item = ft_calloc(1, sizeof(t_item));

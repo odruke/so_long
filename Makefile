@@ -4,7 +4,7 @@ CFLAGS = -Wall -Wextra -Werror -g
 
 MFLAGS = -Lmlx -lmlx -lXext -lX11 -lm -lbsd
 
-CC = cc
+CC = cc 
 
 MLX_LIBDIR = ./mlx/
 
