@@ -6,7 +6,7 @@
 /*   By: odruke-s <odruke-s@student.42lausanne.ch>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 10:38:49 by odruke-s          #+#    #+#             */
-/*   Updated: 2025/02/14 21:49:30 by odruke-s         ###   ########.fr       */
+/*   Updated: 2025/02/26 14:29:06 by odruke-s         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "so_long.h"
@@ -55,6 +55,11 @@ void	valid_path(t_data *data, int y, int x)
 
 	valid_symbol = "0PCE";
 	find_items(data, y, x);
+	if (data->map->gridff[y][x] == 'E')
+	{
+		data->map->gridff[y][x] = 'x';
+		return ;
+	}
 	data->map->gridff[y][x] = 'x';
 	if ((y + 1) < data->map->y
 		&& ft_strchr(valid_symbol, data->map->gridff[y + 1][x]))
